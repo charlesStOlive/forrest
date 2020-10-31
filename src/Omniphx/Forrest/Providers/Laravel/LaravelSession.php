@@ -2,7 +2,7 @@
 
 namespace Omniphx\Forrest\Providers\Laravel;
 
-use Illuminate\Config\Repository as Config;
+use Illuminate\Contracts\Session\Session as Session;
 use October\Rain\Config\Repository as Config;
 use Omniphx\Forrest\Exceptions\MissingKeyException;
 use Omniphx\Forrest\Interfaces\StorageInterface;
@@ -29,7 +29,7 @@ class LaravelSession implements StorageInterface
      */
     public function put($key, $value)
     {
-        return $this->session->put($this->path.$key, $value);
+        return $this->session->put($this->path . $key, $value);
     }
 
     /**
@@ -41,11 +41,11 @@ class LaravelSession implements StorageInterface
      */
     public function get($key)
     {
-        if(!$this->has($key)) {
+        if (!$this->has($key)) {
             throw new MissingKeyException(sprintf('No value for requested key: %s', $key));
         }
 
-        return $this->session->get($this->path.$key);
+        return $this->session->get($this->path . $key);
     }
 
     /**
@@ -57,6 +57,6 @@ class LaravelSession implements StorageInterface
      */
     public function has($key)
     {
-        return $this->session->has($this->path.$key);
+        return $this->session->has($this->path . $key);
     }
 }
