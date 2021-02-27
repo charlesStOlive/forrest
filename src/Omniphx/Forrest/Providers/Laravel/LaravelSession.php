@@ -3,7 +3,7 @@
 namespace Omniphx\Forrest\Providers\Laravel;
 
 use Illuminate\Contracts\Session\Session as Session;
-use October\Rain\Config\Repository as Config;
+use Winter\Storm\Config\Repository as Config;
 use Omniphx\Forrest\Exceptions\MissingKeyException;
 use Omniphx\Forrest\Interfaces\StorageInterface;
 
